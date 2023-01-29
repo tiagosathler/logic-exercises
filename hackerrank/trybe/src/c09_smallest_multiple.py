@@ -49,13 +49,13 @@ def smallest_multiple(n: int) -> int:
 
     prime_numbers = get_prime_numbers(n)
 
-    test_numbers = numbers.difference(prime_numbers)
+    composite_numbers = numbers.difference(prime_numbers)
 
     prime_product = math.prod(prime_numbers)
 
     mod_numbers = list()
 
-    for number in test_numbers:
+    for number in composite_numbers:
         mod = (prime_product * math.prod(mod_numbers)) % number
 
         if mod != 0:
@@ -76,6 +76,7 @@ def smallest_multiple(n: int) -> int:
 
 
 # GABARITO:
+# (gasta-se um tempo absurdo para n = 20)
 # def smallest_multiple(n: int) -> int:
 #     """
 #     O menor número divisível por TODOS os números de 1 a 10 é 2520.
