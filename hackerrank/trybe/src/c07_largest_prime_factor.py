@@ -1,9 +1,19 @@
+"""Challenge 07 - Largest prime factor"""
+
 import math
-from typing import List
+from typing import Set
 
 
-def find_next_prime(prime_numbers: List[int]) -> int:
-    last = prime_numbers[len(prime_numbers) - 1]
+def find_next_prime(prime_numbers: Set[int]) -> int:
+    """Find the next prime number of a given set of prime numbers
+
+    Args:
+        prime_numbers (Set[int]): list of prime numbers
+
+    Returns:
+        int: next prime number of the given set
+    """
+    last = max(prime_numbers)
 
     number = last + 2
 
@@ -13,37 +23,42 @@ def find_next_prime(prime_numbers: List[int]) -> int:
     return number
 
 
-def largest_prime_factor(n: int) -> int:
-    """
-    Números primos são aqueles que são divisíveis exclusivamente
+def largest_prime_factor(arg: int) -> int:
+    """Números primos são aqueles que são divisíveis exclusivamente
     por 1 e por eles mesmos. Ex: 2, 3, 5, 7, 11, 13, 17, 19...
     Os divisores primos de 13195, por exemplo, são 5, 7, 13, 29.
     Encontre o maior divisor primo de um dado número.
+
+    Args:
+        arg (int): any positive integer
+
+    Returns:
+        int: largest integer prime factor
     """
-    square_root_of_number = math.floor(math.sqrt(n))
+    square_root_of_number = math.floor(math.sqrt(arg))
 
-    prime_numbers = [2, 3]
+    prime_numbers = set([2, 3])
 
-    actual_prime_number = 3
-    largest_prime_divisor = 1
+    actual_prime_number = int(3)
+    largest_prime_divisor = int(1)
 
     while actual_prime_number < square_root_of_number:
         actual_prime_number = find_next_prime(prime_numbers)
-        prime_numbers.append(actual_prime_number)
-        if n % actual_prime_number == 0:
+        prime_numbers.add(actual_prime_number)
+        if arg % actual_prime_number == 0:
             largest_prime_divisor = actual_prime_number
     return largest_prime_divisor
 
 
 if __name__ == "__main__":
-    n = 13195
-    result = largest_prime_factor(n)
+    N = 13195
+    result = largest_prime_factor(N)
     print(result)
 
-    n = 26789
-    result = largest_prime_factor(n)
+    N = 26789
+    result = largest_prime_factor(N)
     print(result)
 
-    n = 3003289
-    result = largest_prime_factor(n)
+    N = 3003289
+    result = largest_prime_factor(N)
     print(result)

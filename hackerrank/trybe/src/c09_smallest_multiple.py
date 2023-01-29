@@ -1,8 +1,17 @@
+"""Challenge 09 - Smallest multiple"""
 import math
 from typing import Set
 
 
 def find_next_prime(prime_numbers: Set[int]) -> int:
+    """Find the next prime number of a given set of prime numbers
+
+    Args:
+        prime_numbers (Set[int]): list of prime numbers
+
+    Returns:
+        int: next prime number of the given set
+    """
     last = max(prime_numbers)
 
     number = last + 2
@@ -10,50 +19,72 @@ def find_next_prime(prime_numbers: Set[int]) -> int:
     if last % 2 == 0:
         number = last + 1
 
-    while any([number % prime == 0 for prime in prime_numbers]):
+    while any(number % prime == 0 for prime in prime_numbers):
         number += 2
 
     return number
 
 
-def get_prime_numbers(n: int) -> Set[int]:
+def get_prime_numbers(arg: int) -> Set[int]:
+    """Get all prime numbers up to the number given by arg
+
+    Args:
+        arg (int): any positive integer
+
+    Returns:
+        Set[int]: set of all prime numbers
+    """
     prime_numbers = set([2])
 
-    for _ in range(1, n):
+    for _ in range(1, arg):
         found_prime_number = find_next_prime(prime_numbers)
 
-        if found_prime_number > n:
-            break
+        if found_prime_number < arg:
+            prime_numbers.add(found_prime_number)
+            continue
 
-        elif found_prime_number == n:
+        if found_prime_number == arg:
             prime_numbers.add(found_prime_number)
             break
 
-        else:
-            prime_numbers.add(found_prime_number)
+        break
 
     return prime_numbers
 
 
-def is_all_multiply(multiple: int, numbers: set) -> bool:
-    return all([multiple % denominator == 0 for denominator in numbers])
+def is_all_multiply(numbers: set, multiple: int) -> bool:
+    """Checks if all numbers of 'numbers' are divisible by 'multiple'
 
+    Args:
+        multiple (int): any positive integer
+        numbers (set): any set of positive integer
 
-def smallest_multiple(n: int) -> int:
+    Returns:
+        bool: True if the numbers are divisible by multiple
     """
-    O menor número divisível por TODOS os números de 1 a 10 é 2520.
+    return all(multiple % denominator == 0 for denominator in numbers)
+
+
+def smallest_multiple(arg: int) -> int:
+    """ O menor número divisível por TODOS os números de 1 a 10 é 2520.
     Crie um algoritmo capaz de calcular o menor número divisível por
-    TODOS os números de 1 a um dado número.
-    """
-    numbers = set(list(range(1, n + 1)))
+    TODOS os números de 2 a um dado número.
 
-    prime_numbers = get_prime_numbers(n)
+    Args:
+        arg (int): maximum number of a sequence >= 2
+
+    Returns:
+        int: the smallest multiple of a given string up to 'arg'
+    """
+    numbers = set(list(range(1, arg + 1)))
+
+    prime_numbers = get_prime_numbers(arg)
 
     composite_numbers = numbers.difference(prime_numbers)
 
     prime_product = math.prod(prime_numbers)
 
-    mod_numbers = list()
+    mod_numbers = []
 
     for number in composite_numbers:
         mod = (prime_product * math.prod(mod_numbers)) % number
@@ -62,17 +93,14 @@ def smallest_multiple(n: int) -> int:
             mod = int(2)
 
             while not is_all_multiply(
-                prime_product * mod * math.prod(mod_numbers),
                 list(range(1, number + 1)),
+                prime_product * mod * math.prod(mod_numbers),
             ):
                 mod += 1
 
             mod_numbers.append(mod)
 
-    mod_product = math.prod(mod_numbers)
-    smallest_multiple = prime_product * mod_product
-
-    return smallest_multiple
+    return prime_product * math.prod(mod_numbers)
 
 
 # GABARITO:

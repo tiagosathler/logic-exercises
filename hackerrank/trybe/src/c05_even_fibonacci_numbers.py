@@ -1,7 +1,9 @@
+"""Challenge 05 - Sum of all Even Fibonacci numbers"""
+
 from typing import List
 
 
-def even_fibonacci_numbers(x: int) -> List[int]:
+def even_fibonacci_numbers(arg: int) -> List[int]:
     """
     Dado um número inteiro positivo 'x', construa a série de
     Fibonacci até igual ou menor que 'x' e calcule o somatório de todos
@@ -13,10 +15,10 @@ def even_fibonacci_numbers(x: int) -> List[int]:
     element = 0
     index = len(fibonacci)
 
-    while element <= x:
+    while element <= arg:
         element = fibonacci[index - 2] + fibonacci[index - 1]
         index += 1
-        if element <= x:
+        if element <= arg:
             fibonacci.append(element)
 
     fibonacci_even_numbers = [
@@ -28,10 +30,10 @@ def even_fibonacci_numbers(x: int) -> List[int]:
 
 
 if __name__ == "__main__":
-    x = 100
-    result = even_fibonacci_numbers(x)
+    X = 100
+    result = even_fibonacci_numbers(X)
     print(result)
 
-    x = 3000000
-    result = even_fibonacci_numbers(x)
+    X = 3000000
+    result = even_fibonacci_numbers(X)
     print(result)

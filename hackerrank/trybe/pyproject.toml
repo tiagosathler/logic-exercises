@@ -1,0 +1,25 @@
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-vv -s --continue-on-collection-errors"
+testpaths = ["tests",]
+
+[tool.black]
+line-length = 79
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.eggs
+  | \.src.egg.info
+  | \.mypy_cache
+  | \.pytest_cache
+  | \.tox
+  | \.venv
+  | .vscode
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''

@@ -1,12 +1,20 @@
-def farenheit_to_celsius(ft: float) -> float:
+"""Challenge 01 - Conversor Fahrenheit to Celsius temperature"""
+
+
+def fahrenheit_to_celsius(arg: float) -> float:
+    """Converts Fahrenheit temperature to Celsius
+
+    Args:
+        arg (float): temperature in Fahrenheit
+
+    Returns:
+        float: temperature in Celsius
     """
-    Converts Farenheit to Celsius temperature
-    """
-    ct = (ft - 32) / 1.8
-    return round(ct, 1)
+    temperature_in_celsius = (arg - 32) / 1.8
+    return round(temperature_in_celsius, 1)
 
 
 if __name__ == "__main__":
-    ft = 100.0
-    ct = farenheit_to_celsius(ft)
+    TEMP = 100.0
+    ct = fahrenheit_to_celsius(TEMP)
     print(ct)
