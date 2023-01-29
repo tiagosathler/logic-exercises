@@ -1,69 +1,76 @@
-from typing import List
+import math
+from typing import Set
 
 
-def find_next_prime(prime_numbers: List[int]) -> int:
-    last = prime_numbers[len(prime_numbers) - 1]
+def find_next_prime(prime_numbers: Set[int]) -> int:
+    last = max(prime_numbers)
 
     number = last + 2
 
-    while any(number % element == 0 for element in prime_numbers):
+    if last % 2 == 0:
+        number = last + 1
+
+    while any([number % prime == 0 for prime in prime_numbers]):
         number += 2
 
     return number
 
 
-def get_prime_numbers(n: int) -> int:
-    prime_numbers = [2, 3]
+def get_prime_numbers(n: int) -> Set[int]:
+    prime_numbers = set([2])
 
-    for _ in range(2, n):
+    for _ in range(1, n):
         found_prime_number = find_next_prime(prime_numbers)
-        if found_prime_number <= n:
-            prime_numbers.append(found_prime_number)
-        else:
+
+        if found_prime_number > n:
             break
-    # print(prime_numbers)
+
+        elif found_prime_number == n:
+            prime_numbers.add(found_prime_number)
+            break
+
+        else:
+            prime_numbers.add(found_prime_number)
+
     return prime_numbers
 
 
-# MINHA SOLUÇÃO DIFERE DO GABARITO A PARTIR DE n = 16:
+def is_all_multiply(multiple: int, numbers: set) -> bool:
+    return all([multiple % denominator == 0 for denominator in numbers])
+
+
 def smallest_multiple(n: int) -> int:
     """
     O menor número divisível por TODOS os números de 1 a 10 é 2520.
     Crie um algoritmo capaz de calcular o menor número divisível por
     TODOS os números de 1 a um dado número.
     """
+    numbers = set(list(range(1, n + 1)))
+
     prime_numbers = get_prime_numbers(n)
 
-    prime_number_multiplication = 1
+    test_numbers = numbers.difference(prime_numbers)
 
-    for number in prime_numbers:
-        prime_number_multiplication *= number
+    prime_product = math.prod(prime_numbers)
 
-    smallest_multiple = prime_number_multiplication
+    mod_numbers = list()
 
-    remnants_of_division = set([1])
+    for number in test_numbers:
+        mod = (prime_product * math.prod(mod_numbers)) % number
 
-    for number in range(1, n + 1):
-        mod = prime_number_multiplication % number
         if mod != 0:
-            remnants_of_division.add(mod)
-            # phrase = (
-            #     str(prime_number_multiplication)
-            #     + " mod "
-            #     + str(number)
-            #     + " = "
-            #     + str(mod)
-            # )
-            # print(phrase)
+            mod = int(2)
 
-    # print(remnants_of_division)
-    remnants_of_division_multiplication = 1
-    for value in remnants_of_division:
-        remnants_of_division_multiplication *= value
+            while not is_all_multiply(
+                prime_product * mod * math.prod(mod_numbers),
+                list(range(1, number + 1)),
+            ):
+                mod += 1
 
-    smallest_multiple = (
-        prime_number_multiplication * remnants_of_division_multiplication
-    )
+            mod_numbers.append(mod)
+
+    mod_product = math.prod(mod_numbers)
+    smallest_multiple = prime_product * mod_product
 
     return smallest_multiple
 
@@ -88,6 +95,6 @@ def smallest_multiple(n: int) -> int:
 
 
 if __name__ == "__main__":
-    for x in range(3, 21):
+    for x in range(2, 21):
         result = smallest_multiple(x)
         print(str(x) + ", " + str(result))
