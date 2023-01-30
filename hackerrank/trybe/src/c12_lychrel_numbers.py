@@ -1,4 +1,36 @@
-""""Challenge 12 - Lychrel numbers"""
+"""
+Challenge 12 - Números de Lychrel - lychrel_numbers
+
+Números palíndromos podem se lidos da esquerda para direita ou da
+direita para esquerda com o mesmo resultado.
+
+Se pegarmos o número 47 e o somarmos ao seu reverso, 74, temos
+47 + 74 = 121, que é um número palíndromo.
+
+Nem todos os os números geram palíndromos de forma tão rápida
+quanto 47. Por exemplo, 349:
+* 349 + 943 = 1292,
+* 1292 + 2921 = 4213
+* 4213 + 3124 = 7337 (palíndromo)
+Ou seja, 349 levou 3 interações para gerar um palíndromo pelas somas
+dos resultados com seu reverso.
+
+Apesar de não ser formalmente provado, acredita-se que números
+como 196 jamais gerarão um palíndromo pelas somas dos resultados de
+seus resultados como os respectivos reversos.
+
+Um número que não gera palíndromos a partir desse processo é
+chamado de Número de Lychrel.
+
+Acredita-se que para qualquer número abaixo de 10.000:
+* gerará um palíndromo a partir da soma dos resultados com seus
+reversos até a 50a iteração;
+* não será possível gerar um palíndromo nem mesmo com todo o
+poder computacional disponível do mundo.
+
+Construa um algoritmo capaz de identificar a quantidade de
+números de Lychrel menores que um dado número N < 10.000
+"""
 
 
 def is_palindrome(arg: int) -> bool:
@@ -34,34 +66,7 @@ def sum_with_reverse(arg: int) -> int:
 
 
 def lychrel_numbers(arg: int) -> int:
-    """
-    Números palíndromos podem se lidos da esquerda para direita ou da
-    direita para esquerda com o mesmo resultado.
-
-    Se pegarmos o número 47 e o somarmos ao seu reverso, 74, temos
-    47 + 74 = 121, que é um número palíndromo.
-
-    Nem todos os os números geram palíndromos de forma tão rápida
-    quanto 47. Por exemplo, 349:
-    * 349 + 943 = 1292,
-    * 1292 + 2921 = 4213
-    * 4213 + 3124 = 7337 (palíndromo)
-    Ou seja, 349 levou 3 interações para gerar um palíndromo pelas somas
-    dos resultados com seu reverso.
-
-    Apesar de não ser formalmente provado, acredita-se que números
-    como 196 jamais gerarão um palíndromo pelas somas dos resultados de
-    seus resultados como os respectivos reversos.
-    Um número que não gera palíndromos a partir desse processo é
-    chamado de Número de Lychrel.
-    Acredita-se que para qualquer número abaixo de 10.000:
-    * gerará um palíndromo a partir da soma dos resultados com seus
-    reversos até a 50a iteração;
-    * não será possível gerar um palíndromo nem mesmo com todo o
-    poder computacional disponível do mundo.
-
-    Construa um algoritmo capaz de identificar a quantidade de
-    números de Lychrel menores que um dado número N < 10.000
+    """Calula quantos números de Lychrel encontrados até 'arg'
 
     Args:
         arg (int): any positive integer less then 10000
