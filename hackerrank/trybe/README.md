@@ -2,6 +2,8 @@
 
 Desafios de algoritmos aplicados pela [Trybe](https://www.betrybe.com/) durante o curso de Desenvolvimento Web no dia 12 / 11 / 2021.
 
+<br>
+
 1. [ ] 1. **[Conversor Fahrenheit-Celsius](https://github.com/tiagosathler/logic-exercises/blob/master/desafiostrybe/hackerrank/trybe/src/c01_conversor_fahrenheit_celsius.py):**
 
 Para se converter uma temperatura medida em um termômetro em Fahrenheit para escala Celsius, com a qual estamos acostumados no Brasil deve-se usar a equação:
@@ -15,6 +17,8 @@ Construa um algoritmo que, ao receber um valor de temperatura medido em Fahrenhe
 Por exemplo, ao receber a leitura de 95ºF retorne 35,0.
 > Atenção para a saída em número de ponto flutuante.
 
+<br>
+
 2. [ ] 2. **[Diferença](https://github.com/tiagosathler/logic-exercises/blob/master/desafiostrybe/hackerrank/trybe/src/c02_difference.py):**
 
 Dado um número **X**, retorne a diferença entre X e 10 de forma que o resultado seja sempre um valor positivo.
@@ -24,6 +28,8 @@ Isto é:
 * se X < 10, faça 10 - X - exemplo: X = 3 ==> 7 (10 - 3)
 * se X > 10, faça X - 10 - exemplo: X = 15 ==> 5 (15 - 10)
 
+<br>
+
 3. [ ] 3. **[Contagem regressiva](https://github.com/tiagosathler/logic-exercises/blob/master/desafiostrybe/hackerrank/trybe/src/c03_count_down.py):**
 
 Dado um número **X** construa um programa que retorne a contagem regressiva no formato X...X-1...X-2...0!!!
@@ -32,6 +38,8 @@ Dado um número **X** construa um programa que retorne a contagem regressiva no 
 
 * X = 10 ==> 10...9...8...7...6...5...4...3...2...1...0!!!
 
+<br>
+
 4. [ ] 4. **[Múltiplos de 3 ou 5](https://github.com/tiagosathler/logic-exercises/blob/master/desafiostrybe/hackerrank/trybe/src/c04_multiples_of_3_or_5.py):**
 
 Construa um algoritmo que encontre a soma de todos os números naturais múltiplos de **3** ou **5** menores que um dado número **N**.
@@ -39,6 +47,8 @@ Construa um algoritmo que encontre a soma de todos os números naturais múltipl
 *Exemplo:*
 
 * Quando listamos todos os números naturais menores que 10 que são múltiplos de 3 ou 5 temos: 3, 5, 6 e 9. A soma desses números é 3 + 5 + 6 + 9 = 23.
+
+<br>
 
 5. [ ] 5. **[Números pares da série de Fibonacci](https://github.com/tiagosathler/logic-exercises/blob/master/desafiostrybe/hackerrank/trybe/src/c05_even_fibonacci_numbers.py):**
 
@@ -52,6 +62,8 @@ Calcule a soma dos números pares entre os elementos da série que sejam menores
 
 > Algumas referências apontam a série de Fibonacci começando em 0. Nesse caso a serie seria: 0, 1, 1, 2, 3, 5, ... Para efeito dessa atividade considere a série iniciando em "1, 2".
 
+<br>
+
 6. [ ] 6. **[Enésimo Primo](https://github.com/tiagosathler/logic-exercises/blob/master/desafiostrybe/hackerrank/trybe/src/c06_nth_prime.py):**
 
 Um número primo é um número natural que é divisível exclusivamente por 1 e por ele mesmo.
@@ -64,6 +76,8 @@ Construa um algoritmo capaz de calcular o enésimo número primo para um dado n�
 
 > O número 1 não é considerado um número primo.
 
+<br>
+
 7. [ ] 7. **[Maior divisor primo](https://github.com/tiagosathler/logic-exercises/blob/master/desafiostrybe/hackerrank/trybe/src/c07_largest_prime_factor.py):**
 
 Números primos são aqueles que são divisíveis exclusivamente por 1 e eles mesmos.
@@ -71,6 +85,8 @@ Números primos são aqueles que são divisíveis exclusivamente por 1 e eles me
 Os divisores primos de 13195, por exemplo, são 5, 7, 13 e 29.
 
 Encontre o maior divisor primo de um dado número.
+
+<br>
 
 8. [ ] 8. **[Caixa de supermercado](https://github.com/tiagosathler/logic-exercises/blob/master/desafiostrybe/hackerrank/trybe/src/c08_supermarket_cashier.py):**
 
@@ -90,11 +106,15 @@ No exemplo acima a entrada seria [1, 3, 5, 4, 0, 0, 7, 0, 0, 6].
 
 > Caso você analise os dados do teste aberto verá que a entrada é: 10, 1, 3, 5, 4, 0, 0, 7, 0, 0, 6. Mas apenas a lista [1, 3, 5, 4, 0, 0, 7, 0, 0, 6] é passada para a função que você irá construir.
 
+<br>
+
 9. [ ] 9. **[Menor múltiplo](https://github.com/tiagosathler/logic-exercises/blob/master/desafiostrybe/hackerrank/trybe/src/c09_smallest_multiple.py):**
 
 O menor número divisível por todos os números de 1 a 10 é **2520**.
 
 Crie um algoritmo capaz de calcular o menor número divisível por todos os números de 1 a um dado número.
+
+<br>
 
 10. [ ] 10. **[Diferença das somas dos quadrados e quadrados da soma](https://github.com/tiagosathler/logic-exercises/blob/master/desafiostrybe/hackerrank/trybe/src/c10_sum_square_difference.py):**
 
@@ -107,6 +127,8 @@ A soma dos quadrados dos primeiros **n** números naturais é dada por:
 * sum_of_square = (1² + 2² + 3² + ... + n²)
 
 Dado um número natural **N**, calcule a diferença entre o quadrado da soma e a soma dos quadrados dos *n* primeiros números naturais
+
+<br>
 
 11. [ ] 11. **[Cadeias de quadrados de dígitos](https://github.com/tiagosathler/logic-exercises/blob/master/desafiostrybe/hackerrank/trybe/src/c11_square_digit_chain.py):**
 
@@ -131,6 +153,8 @@ No caso do 1, a partir da primeira ocorrência, todos os números serão 1.
 No caso do 89, uma vez que ele seja atingido, a sequência será eternamente a mesma que até alcançar 89 novamente.
 
 Construa um algoritmo capaz de contar quantas cadeias terminarão em 89 considerando cadeias que se iniciem com todos os números menores que um dado número **N**.
+
+<br>
 
 12. [ ] 12. **[Números de Lychrel](https://github.com/tiagosathler/logic-exercises/blob/master/desafiostrybe/hackerrank/trybe/src/c12_lychrel_numbers.py):**
 
@@ -162,6 +186,8 @@ poder computacional disponível do mundo.
 
 Construa um algoritmo capaz de identificar a quantidade de números de Lychrel menores que um dado número N < 10.000.
 
+<br>
+
 13. [ ] 13. **[Soma dos dígitos](https://github.com/tiagosathler/logic-exercises/blob/master/desafiostrybe/hackerrank/trybe/src/c13_digits_sum.py):**
 
 Escreva um programa capaz de encontrar quantos números entre 0 e 1000 têm a a soma dos seus dígitos igual a um dado número **S**.
@@ -170,6 +196,8 @@ Escreva um programa capaz de encontrar quantos números entre 0 e 1000 têm a a 
 
 * para S = 26 temos 3 números, 899, 989 e 998, cujas somas dos algarismos é igual a S.
 
+<br>
+
 14. [ ] 14. **[Maior Produto Palíndromo](https://github.com/tiagosathler/logic-exercises/blob/master/desafiostrybe/hackerrank/trybe/src/c14_largest_palindrome_product.py):**
 
 Um número palíndromo tem a o mesmo valor sendo ser lido da direita para a esquerda ou da esquerda para direita, por exemplo: 11, 212, 3773, 1034301..
@@ -177,6 +205,8 @@ Um número palíndromo tem a o mesmo valor sendo ser lido da direita para a esqu
 O maior número palíndromo resultado do produto de dois números de **2 dígitos** é **9009** (*91 x 91*)
 
 Encontre o maior número palíndromo resultado do produto de dois números com um determinado número de **dígitos**.
+
+<br>
 
 15. [ ] 15. **[Poligramas](https://github.com/tiagosathler/logic-exercises/blob/master/desafiostrybe/hackerrank/trybe/src/c15_polygram.py):**
 
