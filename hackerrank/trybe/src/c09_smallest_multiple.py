@@ -1,4 +1,13 @@
-"""Challenge 09 - Smallest multiple"""
+"""
+Challenge 09 - Menor múltiplo - smallest_multiple
+
+O menor número divisível por todos os números de 1 a 10 é 2520.
+
+Crie um algoritmo capaz de calcular o menor número divisível
+por todos os números de 1 a um dado número.
+"""
+
+
 import math
 from typing import Set
 
@@ -57,7 +66,7 @@ def is_all_multiply(numbers: set, multiple: int) -> bool:
 
     Args:
         multiple (int): any positive integer
-        numbers (set): any set of positive integer
+        numbers (set): set of positive integer
 
     Returns:
         bool: True if the numbers are divisible by multiple
@@ -66,8 +75,7 @@ def is_all_multiply(numbers: set, multiple: int) -> bool:
 
 
 def smallest_multiple(arg: int) -> int:
-    """ O menor número divisível por TODOS os números de 1 a 10 é 2520.
-    Crie um algoritmo capaz de calcular o menor número divisível por
+    """Calcula o menor número divisível por
     TODOS os números de 2 a um dado número.
 
     Args:
