@@ -1,4 +1,17 @@
-"""Challenge 06 - nth prime of any positive integer"""
+"""
+Challenge 06 - Enésimo Primo - nth_prime
+
+Um número primo é um número natural que é divisível exclusivamente
+por 1 e por ele mesmo.
+
+Construa um algoritmo capaz de calcular o enésimo número primo
+para um dado número N.
+
+Exemplo: N = 6 -> tem-se os 6 primeiros números primos:
+2, 3, 5, 7, 11, 13, onde 13 é o sexto número primo.
+
+* O número 1 não é considerado um número primo.
+"""
 
 from typing import Set
 
@@ -23,17 +36,14 @@ def find_next_prime(prime_numbers: Set[int]) -> int:
 
 
 def nth_prime(arg: int) -> int:
-    """Um número primo é um número natural que é divisível exclusivamente
-    por 1 e por ele mesmo. Construa um algoritmo capaz de calcular o
-    enésimo número primo para um dado número 'n', sendo n >= 2
-    Por exemplo, para n = 6, tem-se os 6 primeiros números primos:
-    (2, 3, 5, 7, 11, 13), onde 13 é o sexto número primo.
+    """De uma série de números primos começando por 2,
+    retorna o número primo na posição dada por 'arg'
 
     Args:
         arg (int): any positive integer
 
     Returns:
-        int: nth prime number
+        int: arg_th prime number
     """
 
     prime_numbers = set([2, 3])
