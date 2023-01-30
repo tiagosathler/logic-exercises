@@ -43,10 +43,8 @@ def is_palindrome(arg: int) -> bool:
         bool: True if is palindrome, False otherwise
     """
     number = list(str(arg))
-    reversed_number = number.copy()
-    reversed_number.reverse()
 
-    return "".join(number) == "".join(reversed_number)
+    return "".join(number) == "".join(reversed(number))
 
 
 def sum_with_reverse(arg: int) -> int:
@@ -58,11 +56,9 @@ def sum_with_reverse(arg: int) -> int:
     Returns:
         int: sum of numbers
     """
-    number = list(str(arg))
-    number.reverse()
-    reverse_number = "".join(number)
+    reversed_number = reversed(list(str(arg)))
 
-    return arg + int(reverse_number)
+    return arg + int("".join(reversed_number))
 
 
 def lychrel_numbers(arg: int) -> int:
