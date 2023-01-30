@@ -108,7 +108,7 @@ No exemplo acima a entrada seria [1, 3, 5, 4, 0, 0, 7, 0, 0, 6].
 
 <br>
 
-9. [ ] 9. **[Menor múltiplo](h<https://github.com/tiagosathler/logic-exercises/blob/master/hackerrank/trybe/src/c09_smallest_multiple.py):**>
+9. [ ] 9. **[Menor múltiplo](https://github.com/tiagosathler/logic-exercises/blob/master/hackerrank/trybe/src/c09_smallest_multiple.py):**
 
 O menor número divisível por todos os números de 1 a 10 é **2520**.
 
