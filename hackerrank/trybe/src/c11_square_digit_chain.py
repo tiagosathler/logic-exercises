@@ -1,4 +1,33 @@
-""""Challenge 11 - Square digit chain"""
+"""
+Challenge 11 - Cadeias de quadrados de dígitos - square_digit_chain
+
+Uma cadeia de números é gerada a partir da soma dos quadrados dos
+dígitos do número anterior até ue o número formado já esteja
+presente nessa cadeia.
+
+Por exemplo:
+* 44 - 32 - 13 - 10 - 1 - 1 / explicação:
+    4² + 4² = 32 |
+    3² + 2² = 13 |
+    1² + 3² = 10 |
+    1² + 0² = 1 |
+    1² = 1
+* 85 - 89 - 175 - 42 - 20 - 4 - 16 - 37 - 58 - 89 ...
+
+Qualquer cadeia que chegue a um número repetido ficará presa em
+um lopping infinito entre a primeira ocorrência desse número e a
+segunda ocorrência dele.
+
+No caso do 1, a partir da primeira ocorrência, todos os números serão
+1.
+
+No caso do 89, uma vez que ele seja atingido, a sequência será eternamente
+a mesma que até alcançar 89 novamente.
+
+Construa um algoritmo capaz de contar quantas cadeias terminarão em 89
+considerando cadeias que se iniciem com todos os números menores que um
+dado número N.
+"""
 
 
 def is_89_chain(arg) -> bool:
@@ -24,31 +53,8 @@ def is_89_chain(arg) -> bool:
 
 def square_digit_chain(arg: int) -> int:
     """
-    Uma cadeia de números é gerada a partir da soma dos quadrados dos
-    dígitos do número anterior até ue o número formado já esteja
-    presente nessa cadeia.
-
-    Por exemplo:
-    * 44 - 32 - 13 - 10 - 1 - 1 / explicação:
-        4² + 4² = 32 |
-        3² + 2² = 13 |
-        1² + 3² = 10 |
-        1² + 0² = 1 |
-        1² = 1
-    * 85 - 89 - 175 - 42 - 20 - 4 - 16 - 37 - 58 - 89 ...
-
-    Qualquer cadeia que chegue a um número repetido ficará presa em
-    um lopping infinito entre a primeira ocorrência desse número e a
-    segunda ocorrência dele.
-
-    No caso do 1, a partir da primeira ocorrência, todos os números serão
-    1.
-    No caso do 89, uma vez que ele seja atingido, a sequência será eternamente
-    a mesma que até alcançar 89 novamente.
-
-    Construa um algoritmo capaz de contar quantas cadeias terminarão em 89
-    considerando cadeias que se iniciem com todos os números menores que um
-    dado número N.
+    Calcula quantos cadeias de quadrados de dígitos
+    são do tipo 89 para números menores que 'arg'
 
     Args:
         arg (int): any positive integer
