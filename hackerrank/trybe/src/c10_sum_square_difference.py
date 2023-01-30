@@ -1,16 +1,21 @@
-""""Challenge 10 - Sum square difference"""
+""""
+Challenge 10 - Diferença das somas dos quadrados e quadrados da soma
+sum_square_difference
+
+O quadrado da soma dos 'n' primeiros números é dado por:
+* square_of_sum = (1 + 2 + 3 ... + n)^2
+
+A soma dos quadrados dos primeiros 'n' números naturais é dada por:
+* sum_of_square = (1² + 2² + 3² + ... + n^2)
+
+Dado um número natural 'N', calcule a diferença entre o quadrado da soma
+e a soma dos quadrados dos 'n' primeiros números naturais
+"""
 
 
 def sum_square_difference(arg: int) -> int:
-    """
-    O quadrado da soma dos 'n' primeiros números e'dado por:
-    square_of_sum = (1 + 2 + 3 ... + n)^2
-
-    A soma dos quadrados dos primeiros 'n' números naturais é dada por:
-    sum_of_square = (1² + 2² + 3² + ... + n^2)
-
-    Calcule a diferença entre o quadrado da soma e a soma dos quadrados dos
-    'n' primeiros números naturais
+    """Calcula a diferença entre o quadrado da soma
+    e a soma dos quadrados dos 'arg' primeiros números naturais
 
     Args:
         arg (int): any positive integer
