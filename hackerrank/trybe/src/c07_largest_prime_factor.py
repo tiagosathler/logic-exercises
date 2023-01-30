@@ -1,4 +1,13 @@
-"""Challenge 07 - Largest prime factor"""
+"""
+Challenge 07 - Maior divisor primo - largest_prime_factor
+
+Números primos são aqueles que são divisíveis exclusivamente
+por 1 e eles mesmos.
+
+Os divisores primos de 13195, por exemplo, são 5, 7, 13 e 29.
+
+Encontre o maior divisor primo de um dado número.
+"""
 
 import math
 from typing import Set
@@ -8,7 +17,7 @@ def find_next_prime(prime_numbers: Set[int]) -> int:
     """Find the next prime number of a given set of prime numbers
 
     Args:
-        prime_numbers (Set[int]): list of prime numbers
+        prime_numbers (Set[int]): set of prime numbers
 
     Returns:
         int: next prime number of the given set
@@ -24,13 +33,10 @@ def find_next_prime(prime_numbers: Set[int]) -> int:
 
 
 def largest_prime_factor(arg: int) -> int:
-    """Números primos são aqueles que são divisíveis exclusivamente
-    por 1 e por eles mesmos. Ex: 2, 3, 5, 7, 11, 13, 17, 19...
-    Os divisores primos de 13195, por exemplo, são 5, 7, 13, 29.
-    Encontre o maior divisor primo de um dado número.
+    """Encontra o maior divisor primo de um dado número.
 
     Args:
-        arg (int): any positive integer
+        arg (int): any positive integer prime
 
     Returns:
         int: largest integer prime factor
