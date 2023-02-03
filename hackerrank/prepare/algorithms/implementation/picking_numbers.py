@@ -1,40 +1,44 @@
-#!/bin/python3
+"""HackerRank
+Picking Numbers
+https://www.hackerrank.com/challenges/picking-numbers
 
-# import math
-# import os
-# import random
-# import re
-# import sys
+Given an array of integers, find the longest sub_array
+where the absolute difference between any two elements
+is less than or equal to 1.
+"""
 
-#
-# Complete the 'pickingNumbers' function below.
-#
-# The function is expected to return an INTEGER.
-# The function accepts INTEGER_ARRAY a as parameter.
-#
 
 from typing import List
 
 
-def pickingNumbers(a: List[int]) -> List[int]:
-    """
-    https://www.hackerrank.com/challenges/picking-numbers
-    """
-    lists = {e: list() for e in a}
+def pickingNumbers(a: List[int]) -> int:
+    """Find the longest sub array where the absolute
+    difference between any two elements is less than or equal to 1
 
-    for e, l in enumerate(lists):
-        continue
+    Args:
+        a (List[int]): array of integers
 
-    sub_array = list()
-    for i in range(len(a)):
-        condition = True
+    Returns:
+        int: length of the longest sub array
+    """
+    arrays = list()
+
+    for i in range(len(a) - 1):
+        sub_array = [a[i]]
+
         for j in range(len(a)):
-            if i != j and abs(a[i] - a[j]) > 1:
-                condition = False
-                break
-        if condition:
-            sub_array.append(a[i])
-    return sub_array
+            if (
+                i != j
+                and abs(max(sub_array) - a[j]) <= 1
+                and abs(min(sub_array) - a[j]) <= 1
+            ):
+                sub_array.append(a[j])
+
+        arrays.append(sub_array)
+
+    arrays_length = [len(sub_array) for sub_array in arrays]
+
+    return max(arrays_length)
 
 
 if __name__ == "__main__":
@@ -51,5 +55,112 @@ if __name__ == "__main__":
     # fptr.close()
 
     a = [4, 6, 5, 3, 3, 1]
+    result = pickingNumbers(a)
+    print(result)
+
+    a = [1, 2, 2, 3, 1, 2]
+    result = pickingNumbers(a)
+    print(result)
+
+    a = [
+        7,
+        12,
+        13,
+        19,
+        17,
+        7,
+        3,
+        18,
+        9,
+        18,
+        13,
+        12,
+        3,
+        13,
+        7,
+        9,
+        18,
+        9,
+        18,
+        9,
+        13,
+        18,
+        13,
+        13,
+        18,
+        18,
+        17,
+        17,
+        13,
+        3,
+        12,
+        13,
+        19,
+        17,
+        19,
+        12,
+        18,
+        13,
+        7,
+        3,
+        3,
+        12,
+        7,
+        13,
+        7,
+        3,
+        17,
+        9,
+        13,
+        13,
+        13,
+        12,
+        18,
+        18,
+        9,
+        7,
+        19,
+        17,
+        13,
+        18,
+        19,
+        9,
+        18,
+        18,
+        18,
+        19,
+        17,
+        7,
+        12,
+        3,
+        13,
+        19,
+        12,
+        3,
+        9,
+        17,
+        13,
+        19,
+        12,
+        18,
+        13,
+        18,
+        18,
+        18,
+        17,
+        13,
+        3,
+        18,
+        19,
+        7,
+        12,
+        9,
+        18,
+        3,
+        13,
+        13,
+        9,
+        7,
+    ]
     result = pickingNumbers(a)
     print(result)
