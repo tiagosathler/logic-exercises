@@ -1,38 +1,41 @@
-def numbers_generator(n: int, sum_value: int, max_digit: int) -> list[int]:
-    numbers = list()
+"""_summary_"""
 
-    min = int("1" * n)
-    max = max_digit * min
+from typing import List
 
-    for number in range(min, max + 1):
+
+def numbers_generator(n_dig: int, summation: int, max_digit: int) -> List[int]:
+    """Gerador de números - Método da força bruta
+
+    Args:
+        n_digit (int): número de dígitos
+        summation (int): restrição: soma de todos os dígitos
+        max_digit (int): restrição: número máximo para cada dígito
+
+    Returns:
+        list[int]: lista com todos os números possíveis
+    """
+    numbers = []
+
+    min_number = int("1" * n_dig)
+    max_number = max_digit * min_number
+
+    for number in range(min_number, max_number + 1):
         sum_of_digits = 0
         for digit in str(number):
             if int(digit) <= max_digit:
                 sum_of_digits += int(digit)
-        if sum_of_digits == sum_value:
+        if sum_of_digits == summation:
             numbers.append(number)
 
     return numbers
 
 
 if __name__ == "__main__":
-    """
-    Dado um input de 'maxDigit' - um dígito de 1 a 9,
-    encontre todas as combinações possíveis para gerar
-    números de n dígitos (n=4 -> "xxxx"), cuja soma desses
-    'n' DÍGITOS seja IGUAL a 'sum' (21)
-    E que todos sejam quaisquer dígitos igual ou menor que 'maxDigit'
+    SUM = 21
+    MAX_DIGIT = 6
+    N = 4
 
-    Se não houver solução imprima 'null'
-    """
+    numbers_generated = numbers_generator(N, SUM, MAX_DIGIT)
 
-    sum = 3
-    max_digit = 6
-    n = 4
-
-    numbers = numbers_generator(n, sum, max_digit)
-
-    for number in numbers:
-        print(number)
-
-    print(len(numbers))
+    for number_generated in numbers_generated:
+        print(number_generated)
