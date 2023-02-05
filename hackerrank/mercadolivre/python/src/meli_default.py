@@ -14,25 +14,35 @@ def numbers_generator(n_dig: int, summation: int, max_digit: int) -> List[int]:
     Returns:
         list[int]: lista com todos os números possíveis
     """
+    count = int(0)
     numbers = []
 
-    min_number = int("1" * n_dig)
-    max_number = max_digit * min_number
+    min_number = int(1)
+    max_number = int(str(max_digit) * n_dig)
 
     for number in range(min_number, max_number + 1):
+
+        if any(int(d) > max_digit for d in list(str(number))):
+            continue
+
         sum_of_digits = 0
+
         for digit in str(number):
+            count += 1
             if int(digit) <= max_digit:
                 sum_of_digits += int(digit)
+
         if sum_of_digits == summation:
             numbers.append(number)
 
+    print("total interações: " + str(count))
+    print("quantidade de números encontrados: " + str(len(numbers)))
     return numbers
 
 
 if __name__ == "__main__":
-    SUM = 21
-    MAX_DIGIT = 6
+    SUM = 5
+    MAX_DIGIT = 5
     N = 4
 
     numbers_generated = numbers_generator(N, SUM, MAX_DIGIT)
