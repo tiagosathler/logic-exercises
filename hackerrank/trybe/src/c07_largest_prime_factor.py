@@ -22,9 +22,10 @@ def find_next_prime(prime_numbers: Set[int]) -> int:
     Returns:
         int: next prime number of the given set
     """
-    last = max(prime_numbers)
+    number = max(prime_numbers)
 
-    number = last + 2
+    if number % 2 == 0:
+        number += 1
 
     while any(number % element == 0 for element in prime_numbers):
         number += 2
@@ -43,7 +44,7 @@ def largest_prime_factor(arg: int) -> int:
     """
     square_root_of_number = math.floor(math.sqrt(arg))
 
-    prime_numbers = set([2, 3])
+    prime_numbers = set([2])
 
     actual_prime_number = int(3)
     largest_prime_divisor = int(1)
