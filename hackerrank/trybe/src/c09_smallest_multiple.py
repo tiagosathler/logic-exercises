@@ -21,12 +21,10 @@ def find_next_prime(prime_numbers: Set[int]) -> int:
     Returns:
         int: next prime number of the given set
     """
-    last = max(prime_numbers)
+    number = max(prime_numbers)
 
-    number = last + 2
-
-    if last % 2 == 0:
-        number = last + 1
+    if number % 2 == 0:
+        number = number + 1
 
     while any(number % prime == 0 for prime in prime_numbers):
         number += 2
@@ -48,13 +46,9 @@ def get_prime_numbers(arg: int) -> Set[int]:
     for _ in range(1, arg):
         found_prime_number = find_next_prime(prime_numbers)
 
-        if found_prime_number < arg:
+        if found_prime_number <= arg:
             prime_numbers.add(found_prime_number)
             continue
-
-        if found_prime_number == arg:
-            prime_numbers.add(found_prime_number)
-            break
 
         break
 
