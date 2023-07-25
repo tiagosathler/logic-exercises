@@ -26,13 +26,16 @@ def permutation_equation(array: list[int]) -> list[int]:
     Returns:
         list[int]: the values of y for all x in the arithmetic sequence 1 to n
     """
-    result: list[int] = []
+    # result: list[int] = []
+    dictionary = {value: index + 1 for index, value in enumerate(array)}
 
-    for root in range(1, len(array) + 1):
-        pointer = array.index(root) + 1
-        result.append(array.index(pointer) + 1)
+    # for root in range(1, len(array) + 1):
+    #     # pointer = array.index(root) + 1
+    #     # result.append(array.index(pointer) + 1)
+    #     result.append(dictionary[dictionary[root]])
 
-    return result
+    # return result
+    return [dictionary[dictionary[root]] for root in range(1, len(array) + 1)]
 
 
 if __name__ == '__main__':
