@@ -1,10 +1,13 @@
-#!/bin/python3
+"""HackerRank
+Between Two Sets
+https://www.hackerrank.com/challenges/between-two-sets
+"""
 
-import math
-import os
-import random
-import re
-import sys
+# import math
+# import os
+# import random
+# import re
+# import sys
 
 #
 # Complete the 'getTotalX' function below.
@@ -15,89 +18,47 @@ import sys
 #  2. INTEGER_ARRAY b
 #
 
-def getTotalX(arr_a, arr_b):
+
+def get_total_x(arr_a: list[int], arr_b: list[int]) -> int:
+    """Between Two Sets
+
+    Args:
+        arr_a (list[int]): an array of integers
+        arr_b (list[int]): an array of integers
+
+    Returns:
+        int: the number of integers that are between the sets
     """
-    https://www.hackerrank.com/challenges/between-two-sets
-    There will be two arrays of integers. Determine all integers that satisfy the following two conditions:
+    x_min = arr_a[-1]  # max value of arr_a
+    x_max = arr_b[0]  # min value of arr_b
 
-    The elements of the first array are all factors of the integer being considered
-    The integer being considered is a factor of all elements of the second array
-    These numbers are referred to as being between the two arrays. Determine how many such numbers exist.
+    factors: list[int] = []
 
-    Example
+    for number in range(x_min, x_max + 1):
+        if all(number % a == 0 for a in arr_a) and all(
+            b % number == 0 for b in arr_b
+        ):
+            factors.append(number)
+
+    return len(factors)
 
 
-    There are two numbers between the arrays:  and .
-    , ,  and  for the first value.
-    ,  and ,  for the second value. Return .
+if __name__ == "__main__":
+    # fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
-    Function Description
+    # first_multiple_input = input().rstrip().split()
 
-    Complete the getTotalX function in the editor below. It should return the number of integers that are betwen the sets.
+    # n = int(first_multiple_input[0])
 
-    getTotalX has the following parameter(s):
+    # m = int(first_multiple_input[1])
 
-    int a[n]: an array of integers
-    int b[m]: an array of integers
-    Returns
+    # arr = list(map(int, input().rstrip().split()))
 
-    int: the number of integers that are between the sets
-    Input Format
+    # brr = list(map(int, input().rstrip().split()))
 
-    The first line contains two space-separated integers,  and , the number of elements in arrays  and .
-    The second line contains  distinct space-separated integers  where .
-    The third line contains  distinct space-separated integers  where .
+    # total = getTotalX(arr, brr)
 
-    Constraints
+    # fptr.write(str(total) + '\n')
 
-    Sample Input
-
-    2 3
-    2 4
-    16 32 96
-    Sample Output
-
-    3
-    Explanation
-
-    2 and 4 divide evenly into 4, 8, 12 and 16.
-    4, 8 and 16 divide evenly into 16, 32, 96.
-
-    4, 8 and 16 are the only three numbers for which each element of a is a factor and each is a factor of all elements of b.
-    """
-    x_min = arr_a[-1]
-    x_max = arr_b[0]
-
-    x = list()
-
-    for i in range(x_min, x_max + 1):
-        condition = True
-        for a in arr_a:
-            if (i % a != 0):
-                condition = False
-        for b in arr_b:
-            if (b % i != 0):
-                condition = False
-        if (condition):
-            x.append(i)
-
-    return len(x)
-
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
-
-    first_multiple_input = input().rstrip().split()
-
-    n = int(first_multiple_input[0])
-
-    m = int(first_multiple_input[1])
-
-    arr = list(map(int, input().rstrip().split()))
-
-    brr = list(map(int, input().rstrip().split()))
-
-    total = getTotalX(arr, brr)
-
-    fptr.write(str(total) + '\n')
-
-    fptr.close()
+    # fptr.close()
+    print(get_total_x([2, 4], [16, 32, 96]))
