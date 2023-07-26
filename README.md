@@ -1,5 +1,5 @@
 # logic-exercises
 
-From: 02 March 2022 - To: today
+Dedication from 02 March 2022 to today:
 
 [![wakatime](https://wakatime.com/badge/github/tiagosathler/logic-exercises.svg?style=social)](https://wakatime.com/badge/github/tiagosathler/logic-exercises)
