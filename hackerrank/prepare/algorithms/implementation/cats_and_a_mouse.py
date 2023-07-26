@@ -1,8 +1,10 @@
-#!/bin/python3
+"""
+Cats And A Mouse
+https://www.hackerrank.com/challenges/cats-and-a-mouse
+"""
 
 # import math
-import os
-
+# import os
 # import random
 # import re
 # import sys
@@ -10,37 +12,47 @@ import os
 # Complete the catAndMouse function below.
 
 
-def catAndMouse(x: int, y: int, z: int) -> str:
+def cat_and_mouse(
+    cat_a_position: int, cat_b_position: int, mouse_c_position: int
+) -> str:
+    """Cats and Mouse
+
+    Args:
+        cat_a_position (int): cat A's position
+        cat_b_position (int): cat B's position
+        mouse_c_position (int): mouse C's position
+
+    Returns:
+        str: either "Cat A", "Cat B", or "Mouse C"
     """
-    https://www.hackerrank.com/challenges/cats-and-a-mouse
-    """
-    dist_a = abs(x - z)
-    dist_b = abs(y - z)
+    dist_a = abs(cat_a_position - mouse_c_position)
+    dist_b = abs(cat_b_position - mouse_c_position)
 
     if dist_a < dist_b:
         return "Cat A"
-    elif dist_a > dist_b:
+    if dist_a > dist_b:
         return "Cat B"
-    else:
-        return "Mouse C"
+    return "Mouse C"
 
 
 if __name__ == "__main__":
-    fptr = open(os.environ["OUTPUT_PATH"], "w")
+    # fptr = open(os.environ["OUTPUT_PATH"], "w")
 
-    q = int(input())
+    # q = int(input())
 
-    for q_itr in range(q):
-        xyz = input().split()
+    # for q_itr in range(q):
+    #     xyz = input().split()
 
-        x = int(xyz[0])
+    #     x = int(xyz[0])
 
-        y = int(xyz[1])
+    #     y = int(xyz[1])
 
-        z = int(xyz[2])
+    #     z = int(xyz[2])
 
-        result = catAndMouse(x, y, z)
+    #     result = catAndMouse(x, y, z)
 
-        fptr.write(result + "\n")
+    #     fptr.write(result + "\n")
 
-    fptr.close()
+    # fptr.close()
+    print(cat_and_mouse(1, 2, 3))
+    print(cat_and_mouse(1, 3, 2))
