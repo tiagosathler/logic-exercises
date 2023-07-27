@@ -43,8 +43,9 @@ def append_and_delete(initial: str, desired: str, operations: int) -> str:
 
     # Step 2: Find the common prefix between "initial" and "desired"
     common_prefix_len = 0
-    for i in range(min(len(initial), len(desired))):
-        if initial[i] == desired[i]:
+
+    for i_char, d_char in zip(initial, desired):
+        if i_char == d_char:
             common_prefix_len += 1
         else:
             break
