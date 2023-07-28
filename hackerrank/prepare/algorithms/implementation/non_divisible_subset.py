@@ -75,7 +75,7 @@ def non_divisible_subset(divisor: int, array: list[int]) -> int:
     total = min(freq_restos[0], 1)
 
     for i in range(1, divisor // 2 + 1):
-        if i != divisor - i:
+        if i != divisor / 2:
             total += max(freq_restos[i], freq_restos[divisor - i])
         else:
             total += min(freq_restos[i], 1)
