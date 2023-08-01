@@ -1,6 +1,6 @@
 """HackerRank
-Utopian Tree
-https://www.hackerrank.com/challenges/utopian-tree/
+Repeated String
+https://www.hackerrank.com/challenges/repeated-string
 """
 
 # import math
