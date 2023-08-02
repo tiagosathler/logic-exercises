@@ -37,15 +37,13 @@ def chocolate_feast(money: int, price: int, packaging: int) -> int:
     if total_chocolates < packaging:
         return total_chocolates
 
-    eats = total_chocolates
-
     bonus, remainder = divmod(total_chocolates, packaging)
 
     while bonus > 0:
-        eats += bonus
+        total_chocolates += bonus
         bonus, remainder = divmod(bonus + remainder, packaging)
 
-    return eats
+    return total_chocolates
 
     # total_chocolates = money // price
     # eats = total_chocolates
