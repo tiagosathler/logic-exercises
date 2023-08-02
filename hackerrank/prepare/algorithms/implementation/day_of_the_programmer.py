@@ -1,4 +1,7 @@
-#!/bin/python3
+"""HackerRank
+Day of the Programmer
+https://www.hackerrank.com/challenges/day-of-the-programmer
+"""
 
 # import math
 # import os
@@ -16,18 +19,27 @@ import datetime
 #
 
 
-def dayOfProgrammer(year: int) -> str:
+def day_of_programmer(year: int) -> str:
+    """Day of Programmer
+
+    Args:
+        year (int): an integer
+
+    Returns:
+        str: the full date of Day of the Programmer
+        during year in the format dd.mm.yyyy
     """
-    https://www.hackerrank.com/challenges/day-of-the-programmer
-    """
-    # Write your code here
     days = 255
     date = datetime.datetime(year, 1, 1)
+
     if year < 1919 and year % 4 == 0 and year % 400 != 0 and year % 100 == 0:
         days -= 1
+
     elif year == 1918:
         days += 13
+
     date = date + datetime.timedelta(days=days)
+
     return date.strftime("%d.%m.%Y")
 
 
@@ -35,20 +47,38 @@ if __name__ == "__main__":
     # fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
     # year = int(input().strip())
-    # year = 1700 # 12.09.1700
-    # year = 1800  # 12.09.1700
-    # year = 1820  # 12.09.1820
-    # year = 1916  # 12.09.1916
-    # year = 1836  # 12.09.1916
-    # year = 1872  # 12.09.1872
-    # year = 1832  # 12.09.1832
-    # year = 1880  # 12.09.1880
-    # year = 1812  # 12.09.1812
-    # year = 1820  # 12.09.1820
-    year = 1918  # 26.09.1820
+    years = [
+        1700,
+        1800,
+        1820,
+        1916,
+        1836,
+        1872,
+        1832,
+        1880,
+        1812,
+        1820,
+        1918,
+    ]
 
-    result = dayOfProgrammer(year)
-    print(result)
+    expected_values = [
+        "12.09.1700",
+        "12.09.1800",
+        "12.09.1820",
+        "12.09.1916",
+        "12.09.1836",
+        "12.09.1872",
+        "12.09.1832",
+        "12.09.1880",
+        "12.09.1812",
+        "12.09.1820",
+        "26.09.1918",
+    ]
+
+    for year_value, expected in zip(years, expected_values):
+        response = day_of_programmer(year_value)
+        print(response)
+        assert response == expected
 
     # fptr.write(result + '\n')
 
