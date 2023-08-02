@@ -303,8 +303,6 @@ if __name__ == "__main__":
     for array, divisor, expected in zip(arrays, divisors, expected_values):
         response = divisible_sum_pairs(len(array), divisor, array)
         print(expected, response)
-        if response != expected:
-            response = divisible_sum_pairs(len(array), divisor, array)
         assert response == expected
 
     # fptr.write(str(result) + "\n")
