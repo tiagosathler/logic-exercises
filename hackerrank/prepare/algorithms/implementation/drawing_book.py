@@ -1,8 +1,10 @@
-#!/bin/python3
+"""HackerRank
+Drawing Book
+https://www.hackerrank.com/challenges/drawing-book
+"""
 
 # import math
 # import os
-
 # import random
 # import re
 # import sys
@@ -17,28 +19,34 @@
 #
 
 
-def pageCount(n: int, p: int) -> int:
+def page_count(number_of_pages: int, page: int) -> int:
+    """Drawing Book
+
+    Args:
+        number_of_pages (int):  the number of pages in the book
+        page (int): the page number to turn to
+
+    Returns:
+        int: the minimum number of pages to turn
     """
-    https://www.hackerrank.com/challenges/drawing-book
-    """
-    if p <= n // 2:
-        return p // 2
+    if page <= number_of_pages // 2:
+        return page // 2
     else:
-        return n // 2 - p // 2
+        return number_of_pages // 2 - page // 2
 
 
 if __name__ == "__main__":
     # fptr = open(os.environ["OUTPUT_PATH"], "w")
 
     # n = int(input().strip())
-    n = 5
 
     # p = int(input().strip())
-    p = 3
 
-    result = pageCount(n, p)
+    # result = pageCount(n, p)
 
     # fptr.write(str(result) + "\n")
-    print(result)
+    response = page_count(5, 3)
+    print(response)
+    assert response == 1
 
     # fptr.close()
