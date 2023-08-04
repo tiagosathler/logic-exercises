@@ -1,10 +1,13 @@
-#!/bin/python3
+"""HackerRank
+Subarray Division / The Birthday Bar
+https://www.hackerrank.com/challenges/the-birthday-bar/
+"""
 
 # import math
 # import random
 # import re
 # import sys
-import os
+# import os
 
 #
 # Complete the 'birthday' function below.
@@ -17,51 +20,67 @@ import os
 #
 
 
-def birthday(s, d, m):
-    """
-    https://www.hackerrank.com/challenges/the-birthday-bar
-    """
-    # Write your code here
-    if len(s) == 1:
-        if s[0] == d or s[0] == m:
-            return 1
+def the_birthday_bar(numbers: list[int], day: int, month: int) -> int:
+    """The birthday bar
 
-    if len(s) < m:
+    Args:
+        numbers (list[int]): the numbers on each of the squares of chocolate
+        day (int): Ron's birth day
+        month (int): Ron's birth month
+
+    Returns:
+        int: the number of ways the bar can be divided
+    """
+    quantity_of_chocolate_squares = len(numbers)
+
+    if quantity_of_chocolate_squares < month:
         return 0
 
     count = 0
-    loop = 1
-    for n in range(len(s) - m + 1):
-        loop += 1
-        sum = 0
-        sub_s = s[n:m + n]
-        for value in sub_s:
-            sum += value
 
-        if sum == d:
+    for index in range(quantity_of_chocolate_squares - month + 1):
+        sub_numbers = numbers[index: index + month]
+
+        if sum(sub_numbers) == day:
             count += 1
-    print("loop", loop)
-    print("len", len(s))
-    print("segment len", m)
-    print(sub_s)
+
     return count
 
 
 if __name__ == "__main__":
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    # fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
-    n = int(input().strip())
+    # n = int(input().strip())
 
-    s = list(map(int, input().rstrip().split()))
+    # s = list(map(int, input().rstrip().split()))
 
-    first_multiple_input = input().rstrip().split()
+    # first_multiple_input = input().rstrip().split()
 
-    d = int(first_multiple_input[0])
+    # d = int(first_multiple_input[0])
 
-    m = int(first_multiple_input[1])
+    # m = int(first_multiple_input[1])
 
-    result = birthday(s, d, m)
+    # result = birthday(s, d, m)
 
-    fptr.write(str(result) + '\n')
+    # fptr.write(str(result) + '\n')
 
-    fptr.close()
+    # fptr.close()
+    array = [2, 2, 1, 3, 2]
+    RESPONSE = the_birthday_bar(array, 4, 2)
+    print(RESPONSE)
+    assert RESPONSE == 2
+
+    array = [1, 2, 1, 3, 2]
+    RESPONSE = the_birthday_bar(array, 3, 2)
+    print(RESPONSE)
+    assert RESPONSE == 2
+
+    array = [1, 1, 1, 1, 1, 1]
+    RESPONSE = the_birthday_bar(array, 3, 2)
+    print(RESPONSE)
+    assert RESPONSE == 0
+
+    array = [1, 2, 1, 3, 1]
+    RESPONSE = the_birthday_bar(array, 4, 3)
+    print(RESPONSE)
+    assert RESPONSE == 1
