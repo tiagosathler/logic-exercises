@@ -1,7 +1,10 @@
-#!/bin/python3
+"""HackerRank
+Sales by Match / Sock Merchant
+https://www.hackerrank.com/challenges/sock-merchant/
+"""
 
 # import math
-import os
+# import os
 # import random
 # import re
 # import sys
@@ -16,30 +19,45 @@ import os
 #
 
 
-def sockMerchant(n: int, ar: list[int]) -> int:
+def sock_merchant(_number: int, colors: list[int]) -> int:
+    """Sock Merchant
+
+    Args:
+        _number (int): the number of socks in the pile
+        (not used in the function)
+        colors (list[int]): the colors of each sock
+
+    Returns:
+        int: the number of pairs
     """
-    https://www.hackerrank.com/challenges/sock-merchant/
-    """
-    socks = dict.fromkeys(ar, 0)
-    for color in ar:
-        socks[color] += 1
+
+    colors_count = dict.fromkeys(colors, 0)
+
+    for color in colors:
+        colors_count[color] += 1
 
     pairs = 0
-    for quantities in socks.values():
-        pairs += quantities // 2
+
+    for count in colors_count.values():
+        pairs += count // 2
 
     return pairs
 
 
 if __name__ == "__main__":
-    fptr = open(os.environ["OUTPUT_PATH"], "w")
+    # fptr = open(os.environ["OUTPUT_PATH"], "w")
 
-    n = int(input().strip())
+    # n = int(input().strip())
 
-    ar = list(map(int, input().rstrip().split()))
+    # ar = list(map(int, input().rstrip().split()))
 
-    result = sockMerchant(n, ar)
+    # result = sockMerchant(n, ar)
 
-    fptr.write(str(result) + "\n")
+    # fptr.write(str(result) + "\n")
 
-    fptr.close()
+    # fptr.close()
+    ar = [10, 20, 20, 10, 10, 30, 50, 10, 20]
+    n = len(ar)
+    response = sock_merchant(n, ar)
+    print(response)
+    assert response == 3
