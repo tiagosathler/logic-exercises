@@ -3,33 +3,43 @@ Palindrome Index - Mock test
 """
 
 
-def palindrome_index(string: str) -> int:
-    half = len(string) // 2
+def is_palindrome(string: str) -> bool:
+    """Is palindrome?
 
-    if string[0:half] == string[::-1][:half]:
+    Args:
+        string (str): a string to check
+
+    Returns:
+        bool: True if string is a palindrome, False otherwise
+    """
+    return string == string[::-1]
+
+
+def palindrome_index(string: str) -> int:
+    """Palindrome Index of string
+
+    Args:
+        string (str): a string to analyze
+
+    Returns:
+        int: the index of the character to remove or -1 if string is palindrome
+    """
+    if is_palindrome(string):
         return -1
 
-    inverse_parity = (len(string) + 1) % 2
+    size = len(string)
 
-    if string[half - inverse_parity] != string[half + 1]:
-        # if string[half - 1 - inverse_parity] == string[half]:
-        half -= 1
+    for i in range(size // 2):
+        if string[i] != string[size - 1 - i]:
+            new_string = string[:i] + string[i + 1:]
+            if is_palindrome(new_string):
+                return i
 
-    left = half - inverse_parity
-    right = half + 1
+            new_string = string[: size - 1 - i] + string[size - i:]
+            if is_palindrome(new_string):
+                return size - 1 - i
 
-    while left >= 0 and right < len(string):
-        if string[left] == string[right]:
-            left -= 1
-            right += 1
-
-        else:
-            if right < len(string) - 1 and string[left] == string[right + 1]:
-                return right
-            # if left > 0 and string[left - 1] == string[right]:
-            return left
-
-    return right if left < 0 else left
+    return -1  # No solution found
 
 
 if __name__ == "__main__":
