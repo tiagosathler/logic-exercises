@@ -1,9 +1,7 @@
 """_summary_"""
 
-from typing import List
 
-
-def numbers_generator(n_dig: int, summation: int, max_digit: int) -> List[int]:
+def numbers_generator(n_dig: int, summation: int, max_digit: int) -> list[int]:
     """Gerador de números - Método da força bruta
 
     Args:
@@ -28,7 +26,7 @@ def numbers_generator(n_dig: int, summation: int, max_digit: int) -> List[int]:
     if summation > max_digit * n_dig:
         return []
 
-    numbers = []
+    numbers: list[int] = []
 
     min_number = int(1)
     max_number = int(str(max_digit) * n_dig)
